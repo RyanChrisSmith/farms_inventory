@@ -1,0 +1,7 @@
+<h1>Animals</h1>
+<% @animals.each do |animal| %>
+  <h3><%= animal.species.capitalize %></h3>
+  <p>Height: <%= animal.height%></p>
+  <p>Weight: <%= animal.weight%></p>
+  <p>Four Legs?: <%= animal.four_legged%></p>
+<% end %>
