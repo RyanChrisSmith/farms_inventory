@@ -4,6 +4,6 @@ class FarmsController < ApplicationController
   end
 
   def show
-    @farms = Farm.all
+    @farm = Farm.find(params[:id])
   end
 end

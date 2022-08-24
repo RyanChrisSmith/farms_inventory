@@ -1,8 +1,5 @@
 <h1>Farms Show Details</h1>
-<% @farms.each do |farm| %>
-  <h3><%= farm.name %></h3>
-  <p>ID: <%= farm.id %></p>
-  <p>Acres: <%= farm.acres_of_land %></p>
-  <p>Has a barn: <%= farm.has_barn %></p>
-
-<%end%>
+  <h3><%= @farm.name %></h3>
+  <p>ID: <%= @farm.id %></p>
+  <p>Acres: <%= @farm.acres_of_land %></p>
+  <p>Has a barn: <%= @farm.has_barn %></p>

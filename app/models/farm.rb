@@ -4,4 +4,5 @@ class Farm < ApplicationRecord
   def total_animals
     self.animals.length
   end
+
 end
