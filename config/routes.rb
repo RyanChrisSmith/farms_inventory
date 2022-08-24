@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   get '/animals', to: 'animals#index'
   get '/animals/:id', to: 'animals#show'
   get '/farms/:farm_id/animals', to: 'farm_animals#index'
+  get '/farms', to: 'farms#index'
 end
