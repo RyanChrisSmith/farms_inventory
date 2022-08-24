@@ -17,6 +17,13 @@ RSpec.describe Farm, type: :model do
         @pig = @farm.animals.create!(species: 'pig', height: 4, weight: 15, four_legged: true)
         expect(@farm.total_animals).to eq 3
       end
+
+      it 'will sort all farms by date created' do
+        @farm = Farm.create!(name: 'Knotsbury Farm', acres_of_land: 350, has_barn: true)
+        @farm = Farm.create!(name: 'Pillsbury Farm', acres_of_land: 1350, has_barn: false)
+        @farm = Farm.create!(name: 'Living Farm', acres_of_land: 350, has_barn: true)
+        require 'pry' ; binding.pry
+      end
     end
   end
 end
