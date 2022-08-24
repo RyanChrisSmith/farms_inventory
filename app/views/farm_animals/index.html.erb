@@ -1,5 +1,9 @@
 <h1><%= @farm.name %></h1>
 <% @animals.each do |animal| %>
+  <h3><%= animal.species%></h3>
+  <p>Height: <%= animal.height%> inches</p>
+  <p>Weight: <%= animal.weight%> lbs</p>
+  <p>Four Legged:<%= animal.four_legged%></p>
   <%= link_to animal.species, "/animals/#{animal.id}" %>
 <% end %>
 <p>Total animals for <%= @farm.name %>: <%= @farm.total_animals %></p>
