@@ -1,10 +1,11 @@
-<h1>Farms</h1>
-  <% @farms.each do |farm| %>
-  <p><h3><%= farm.name %></h3></p>
-  <%end%>
 
-<h2>Farms sorted by creation time </h2>
+<h1>Farms Ordered</h1>
 <p><% @farms_sorted.each do |farm_sort| %></p>
   <p><h3><%= farm_sort.name %> : <%= farm_sort.created_at %></h3></p>
 
 <%end %>
+
+<h1>Farms</h1>
+  <% @farms.each do |farm| %>
+  <p><h3><%= farm.name %></h3></p>
+  <%end%>
