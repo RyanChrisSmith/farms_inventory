@@ -33,6 +33,28 @@ RSpec.describe Farm, type: :feature do
         expect(page).to have_content(@farm.created_at)
       end
 
+      it 'has a link directing back to the All Animals page' do
+        farm = Farm.create!(name: 'Knotsbury', acres_of_land: 200, has_barn: true)
+        animal = farm.animals.create!(species: 'horse', height: 255, weight: 400, four_legged: true)
+        animal_2 = farm.animals.create!(species: 'chicken', height: 5, weight: 10, four_legged: false)
+
+        visit "/farms"
+        click_on "All animals"
+
+        expect(current_path).to eq("/animals")
+      end
+
+      it 'has a link directing back to the All Farms page' do
+        farm = Farm.create!(name: 'Knotsbury', acres_of_land: 200, has_barn: true)
+        animal = farm.animals.create!(species: 'horse', height: 255, weight: 400, four_legged: true)
+        animal_2 = farm.animals.create!(species: 'chicken', height: 5, weight: 10, four_legged: false)
+
+        visit "/farms"
+        click_on "All farms"
+
+        expect(current_path).to eq("/farms")
+      end
+
     end
   end
 end
