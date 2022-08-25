@@ -1,4 +1,10 @@
-<h1>Farms Index</h1>
+<h1>Farms</h1>
   <% @farms.each do |farm| %>
   <p><h3><%= farm.name %></h3></p>
   <%end%>
+
+<h2>Farms sorted by creation time </h2>
+<p><% @farms_sorted.each do |farm_sort| %></p>
+  <p><h3><%= farm_sort.name %> : <%= farm_sort.created_at %></h3></p>
+
+<%end %>
