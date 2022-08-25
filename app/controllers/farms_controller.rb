@@ -13,7 +13,7 @@ class FarmsController < ApplicationController
 
   def create
     @farm = Farm.create(name: params[:name], acres_of_land: params[:acres_of_land], has_barn: params[:has_barn])
-    redirect_to "/farms"
+    redirect_to '/farms'
   end
 
 end
