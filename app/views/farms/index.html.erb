@@ -1,8 +1,8 @@
-<%= link_to "All animals", "/animals"%><br><%= link_to "All farms", "/farms"%>
+<%= link_to "All animals", "/animals"%><br><%= link_to "All farms", "/farms"%><br><%= link_to "New Farm", "/farms/new" %>
+
 <h1>Farms Ordered</h1>
 <p><% @farms_sorted.each do |farm_sort| %></p>
-  <p><h3><%= farm_sort.name %> : <%= farm_sort.created_at %></h3></p>
-
+  <p><h3><%= farm_sort.name %>  - established: <%= farm_sort.created_at %></h3></p>
 <%end %>
 
 <h1>Farms</h1>
