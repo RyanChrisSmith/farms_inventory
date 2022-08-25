@@ -12,12 +12,15 @@ RSpec.describe Farm, type: :feature do
         expect(page).to have_content(@farm.name)
       end
 
-      # it 'will display each farm in order of most recently created descending' do
-      #   @farm = Farm.create!(name: 'Knotsbury Farm', acres_of_land: 350, has_barn: true)
-      #   @farm = Farm.create!(name: 'Pillsbury Farm', acres_of_land: 1350, has_barn: false)
-      #   @farm = Farm.create!(name: 'Living Farm', acres_of_land: 350, has_barn: true)
-      #   require 'pry' ; binding.pry
-      # end
+      it 'will show the farms by creation time, with most recent showing first' do
+        @farm = Farm.create!(name: 'Knotsbury Farm', acres_of_land: 350, has_barn: true)
+        @farm_2 = Farm.create!(name: 'Ryans Farm', acres_of_land: 340, has_barn: true)
+        @farm_3 = Farm.create!(name: 'Crazy Farm', acres_of_land: 134, has_barn: false)
+
+        expect(page)
+        end
+
+      end
 
     end
   end
