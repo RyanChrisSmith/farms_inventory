@@ -12,8 +12,13 @@ class FarmsController < ApplicationController
   end
 
   def create
-    @farm = Farm.create(name: params[:name], acres_of_land: params[:acres_of_land], has_barn: params[:has_barn])
+    @farm = Farm.create(farms_params)
     redirect_to '/farms'
+  end
+
+  private
+  def farms_params
+    params.permit(:name, :acres_of_land, :has_barn)
   end
 
 end
