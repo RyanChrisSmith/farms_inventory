@@ -8,7 +8,7 @@ RSpec.describe 'the Farm creation' do
     expect(current_path).to eq('/farms/new')
   end
 
-  it 'can create a new artist' do
+  it 'can create a new farm' do
     visit "/farms/new"
 
     fill_in('name', with: 'Outback Farm')

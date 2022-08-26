@@ -3,4 +3,5 @@ class FarmAnimalsController < ApplicationController
     @farm = Farm.find(params[:farm_id])
     @animals = @farm.animals
   end
+
 end
