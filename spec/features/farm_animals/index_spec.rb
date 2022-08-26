@@ -28,11 +28,11 @@ RSpec.describe 'FarmAnimals' do
   end
 
   it 'has a link directing back to the All Farms page' do
-    farm = Farm.create!(name: 'Knotsbury', acres_of_land: 200, has_barn: true)
-    animal = farm.animals.create!(species: 'horse', height: 255, weight: 400, four_legged: true)
-    animal_2 = farm.animals.create!(species: 'chicken', height: 5, weight: 10, four_legged: false)
+    @farm = Farm.create!(name: 'Knotsbury', acres_of_land: 200, has_barn: true)
+    animal = @farm.animals.create!(species: 'horse', height: 255, weight: 400, four_legged: true)
+    animal_2 = @farm.animals.create!(species: 'chicken', height: 5, weight: 10, four_legged: false)
 
-    visit "/farms/#{farm.id}/animals"
+    visit "/farms/#{@farm.id}/animals"
     click_on "All farms"
 
     expect(current_path).to eq("/farms")

@@ -1,0 +1,12 @@
+<h1>Edit animal</h1>
+<%= form_with url: "/animals/#{@animal.id}", method: :patch, local: :true do |form|%>
+  <%= form.label :species%>
+  <%= form.text_field :species%>
+  <p><%= form.label :height%>
+  <%= form.text_field :height%></p>
+  <p><%= form.label :weight%>
+  <%= form.text_field :weight%></p>
+  <p><%= form.label :four_legged%>
+  <%= form.text_field :four_legged%></p>
+  <%= form.submit "Update #{@animal.species}"%>
+  <%end %>

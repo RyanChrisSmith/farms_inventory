@@ -1,0 +1,12 @@
+<h1>New animal</h1>
+<%=form_with url: '/animals', method: :post, local: true do |form| %>
+<%= form.label :species %>
+<%= form.text_field :species %>
+<p><%= form.label :height %>
+<%= form.text_field :height %></p>
+<p><%= form.label :weight %>
+<%= form.text_field :weight %></p>
+<p><%= form.label :four_legged %>
+<%= form.text_field :four_legged %></p>
+<%= form.submit 'Create Animal'%>
+<%end %>

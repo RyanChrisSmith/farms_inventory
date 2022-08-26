@@ -1,0 +1,12 @@
+<h1>Edit Farm</h1>
+
+<%= form_with url: "/farms/#{@farm.id}", method: :patch, local: :true do |form|%>
+  <%= form.label :name%>
+  <%= form.text_field :name%>
+  <p><%= form.label :acres_of_land%>
+  <%= form.text_field :acres_of_land%></p>
+  <p><%= form.label :has_barn%>
+  <%= form.text_field :has_barn%></p>
+  <%= form.submit 'Update Farm'%>
+
+<%end%>
