@@ -1,7 +1,9 @@
-<%= link_to "All animals", "/animals"%><br><%= link_to "All farms", "/farms"%>
+<%= link_to "All animals", "/animals"%><br>
+<%= link_to "All farms", "/farms"%>
 <h1>All Animals</h1>
 <% @animals.each do |animal| %>
-  <h3><%= animal.species %></h3>
+  <h3><%= link_to "edit :", "/animals/#{animal.id}/edit" %>
+  <%= animal.species %></h3>
   <p>Height: <%= animal.height%></p>
   <p>Weight: <%= animal.weight%></p>
   <p>Four Legs?: <%= animal.four_legged%></p>

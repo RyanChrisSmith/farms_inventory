@@ -1,6 +1,10 @@
-<%= link_to "All animals", "/animals"%><br><%= link_to "All farms", "/farms"%><br><%= link_to "This farms animals", "/farms/#{@farm.id}/animals"%>
-<h1>Farms Show Details</h1>
-  <h3><%= @farm.name %><%= button_to "Update #{@farm.name}", "/farms/#{@farm.id}/edit", method: :get  %></h3>
+<%= link_to "All animals", "/animals"%><br>
+<%= link_to "All farms", "/farms"%><br>
+<%= link_to "This farms animals", "/farms/#{@farm.id}/animals"%>
+
+<h1>Farm Details</h1>
+  <h3><%= @farm.name %>
+  <%= button_to "Update #{@farm.name}", "/farms/#{@farm.id}/edit", method: :get  %></h3>
   <p>ID: <%= @farm.id %></p>
   <p>Acres: <%= @farm.acres_of_land %></p>
   <p>Has a barn: <%= @farm.has_barn %></p>
