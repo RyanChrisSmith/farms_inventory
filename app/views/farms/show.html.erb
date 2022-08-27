@@ -9,3 +9,4 @@
   <p>Acres: <%= @farm.acres_of_land %></p>
   <p>Has a barn: <%= @farm.has_barn %></p>
   <p>Total animals: <%= @farm.total_animals %></p>
+  <p><%= button_to "Delete #{@farm.name}", "/farms/#{@farm.id}", method: :delete %></p>
