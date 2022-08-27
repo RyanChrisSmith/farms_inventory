@@ -34,6 +34,12 @@ class AnimalsController < ApplicationController
     redirect_to "/animals"
   end
 
+  def sort
+    @farm = Farm.find(params[:id])
+    @animals = Animal.order('species')
+    redirect_to "/farms/#{@farm.id}/animals"
+  end
+
 private
   def animal_params
       params.permit(:species, :height, :weight, :four_legged)

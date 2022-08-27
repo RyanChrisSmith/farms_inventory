@@ -38,7 +38,7 @@ RSpec.describe 'FarmAnimals' do
     expect(current_path).to eq("/farms")
   end
 
-  xit 'will sort the farm animals in alphabetical order via a link' do
+  it 'will sort the farm animals in alphabetical order via a link' do
     @farm = Farm.create!(name: 'Knotsbury', acres_of_land: 200, has_barn: true)
     animal = @farm.animals.create!(species: 'horse', height: 255, weight: 400, four_legged: true)
     animal_2 = @farm.animals.create!(species: 'chicken', height: 5, weight: 10, four_legged: false)
