@@ -10,5 +10,6 @@
   <p>Height: <%= animal.height%> inches</p>
   <p>Weight: <%= animal.weight%> lbs</p>
   <p>Four Legged:<%= animal.four_legged%></p>
+   <p><%= button_to "Delete #{animal.species}", "/animals/#{animal.id}", method: :delete %></p>
 <% end %>
 <p>Total animals for <%= @farm.name %>: <%= @farm.total_animals %></p>
