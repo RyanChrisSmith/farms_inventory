@@ -1,6 +1,10 @@
 class AnimalsController < ApplicationController
   def index
-    @animals = Animal.all
+    @animals = if params[:sort_by] == "species"
+      Animal.order(:title)
+    else
+      Animal.all
+    end
     @animals_only_true = Animal.where("four_legged = true")
     @animals_alph = Animal.order("species")
   end
@@ -32,6 +36,12 @@ class AnimalsController < ApplicationController
     @animal = Animal.find(params[:id])
     @animal.destroy
     redirect_to "/animals"
+  end
+
+  def sort
+    @farm = Farm.find(params[:id])
+    @animals = Animal.order('species')
+    redirect_to "/farms/#{@farm.id}/animals"
   end
 
 private

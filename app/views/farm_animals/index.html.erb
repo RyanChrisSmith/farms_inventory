@@ -1,7 +1,7 @@
 <%= link_to "All animals", "/animals"%><br>
 <%= link_to "All farms", "/farms"%><br>
 <%= link_to "New animal", "/farms/#{@farm.id}/animals/new" %><br>
-<%= link_to "Sort animals alphabetically", "/farms/#{@farm.id}/animals", method: :sort %>
+<%= link_to "Sort animals alphabetically", "/farms/#{@farm.id}/animals/sort" %>
 
 <h1><%= @farm.name %></h1>
 <% @animals.each do |animal| %>

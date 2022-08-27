@@ -6,6 +6,7 @@
 <p><% @farms_sorted.each do |farm_sort| %></p>
   <p><h3><%= link_to "Edit info :", "/farms/#{farm_sort.id}/edit" %>
   <%= farm_sort.name %>  - established: <%= farm_sort.created_at %></h3></p>
+  <p><%= button_to "Delete #{farm_sort.name}", "/farms/#{farm_sort.id}", method: :delete %> </p>
 <%end %>
 
 <h1>Farms</h1>

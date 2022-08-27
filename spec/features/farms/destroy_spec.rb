@@ -9,7 +9,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Farms delete' do
-  it 'can delete the farm' do
+  it 'can delete the farm starting at show page' do
     @farm = Farm.create!(name: 'Knotsbury Farm', acres_of_land: 350, has_barn: true)
 
     visit "/farms/#{@farm.id}"
@@ -18,4 +18,16 @@ RSpec.describe 'Farms delete' do
     expect(current_path).to eq("/farms")
     expect(page).to_not have_content('Knotsbury Farm')
   end
+
+  it 'can delete the farm starting from index page' do
+    @farm = Farm.create!(name: 'Knotsbury Farm', acres_of_land: 350, has_barn: true)
+
+    visit "/farms"
+    click_button "Delete #{@farm.name}"
+
+    expect(current_path).to eq("/farms")
+    expect(page).to_not have_content('Knotsbury Farm')
+  end
+
+
 end
