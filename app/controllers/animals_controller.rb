@@ -1,6 +1,8 @@
 class AnimalsController < ApplicationController
   def index
     @animals = Animal.all
+    @animals_only_true = Animal.where("four_legged = true")
+    @animals_alph = Animal.order("species")
   end
 
   def show

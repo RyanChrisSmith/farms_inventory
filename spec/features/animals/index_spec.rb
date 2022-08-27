@@ -33,13 +33,4 @@ RSpec.describe 'Animals' do
     expect(current_path).to eq("/farms")
   end
 
-  it 'only shows the record of the animals that have 4 legs' do
-    farm = Farm.create!(name: 'Knotsbury', acres_of_land: 200, has_barn: true)
-    animal = farm.animals.create!(species: 'horse', height: 255, weight: 400, four_legged: true)
-    animal_2 = farm.animals.create!(species: 'chicken', height: 5, weight: 10, four_legged: false)
-
-    visit "/animals"
-
-    expect(page).to_not have_content(animal_2.species)
-  end
 end

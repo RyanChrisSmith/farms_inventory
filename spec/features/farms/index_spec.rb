@@ -55,6 +55,15 @@ RSpec.describe Farm, type: :feature do
         expect(current_path).to eq("/farms")
       end
 
+      it 'has a link to edit each farms info' do
+        farm = Farm.create!(name: 'Knotsbury', acres_of_land: 200, has_barn: true)
+
+        visit '/farms'
+        click_on "Edit Farm"
+
+        expect(current_path).to eq("/farms/#{farm.id}/edit")
+      end
+
     end
   end
 end

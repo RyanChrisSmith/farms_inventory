@@ -6,3 +6,11 @@
   <p>Weight: <%= animal.weight%></p>
   <p>Four Legs?: <%= animal.four_legged%></p>
 <% end %>
+
+<h1>All Animals with 4 legs</h1>
+<% @animals_only_true.each do |animal| %>
+  <h3><%= animal.species %></h3>
+  <p>Height: <%= animal.height%></p>
+  <p>Weight: <%= animal.weight%></p>
+  <p>Four Legs?: <%= animal.four_legged%></p>
+<% end %>
