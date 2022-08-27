@@ -27,8 +27,7 @@ class FarmsController < ApplicationController
   end
 
   def destroy
-    farm = Farm.find(params[:id])
-    farm.destroy
+    Farm.find(params[:id]).destroy
     redirect_to "/farms"
   end
 
