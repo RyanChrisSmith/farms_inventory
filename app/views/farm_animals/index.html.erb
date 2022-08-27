@@ -1,7 +1,12 @@
-<%= link_to "All animals", "/animals"%><br><%= link_to "All farms", "/farms"%><br><%= link_to "New animal", "/farms/#{@farm.id}/animals/new" %><br><%= link_to "Sort animals alphabetically", "/farms/#{@farm.id}/animals" %>
+<%= link_to "All animals", "/animals"%><br>
+<%= link_to "All farms", "/farms"%><br>
+<%= link_to "New animal", "/farms/#{@farm.id}/animals/new" %><br>
+<%= link_to "Sort animals alphabetically", "/farms/#{@farm.id}/animals", method: :sort %>
+
 <h1><%= @farm.name %></h1>
 <% @animals.each do |animal| %>
   <h3><%=link_to animal.species, "/animals/#{animal.id}"%></h3>
+  <p><%= link_to "edit #{animal.species}", "/farms/#{@farm.id}/animals/#{animal.id}/edit" %>
   <p>Height: <%= animal.height%> inches</p>
   <p>Weight: <%= animal.weight%> lbs</p>
   <p>Four Legged:<%= animal.four_legged%></p>

@@ -51,4 +51,14 @@ RSpec.describe 'FarmAnimals' do
     expect(animal_2).to appear_before(animal_1)
   end
 
+  it 'has a link to direct to edit animal details' do
+    @farm = Farm.create!(name: 'Knotsbury', acres_of_land: 200, has_barn: true)
+    animal = @farm.animals.create!(species: 'horse', height: 255, weight: 400, four_legged: true)
+
+    visit "/farms/#{@farm.id}/animals"
+    click_on "edit #{animal.species}"
+
+    expect(current_path).to eq("/farms/#{@farm.id}/animals/#{animal.id}/edit")
+  end
+
 end

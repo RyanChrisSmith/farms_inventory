@@ -33,4 +33,14 @@ RSpec.describe 'Animals' do
     expect(current_path).to eq("/farms")
   end
 
+  it 'has a link directing to edit the animal' do
+    farm = Farm.create!(name: 'Knotsbury', acres_of_land: 200, has_barn: true)
+    animal = farm.animals.create!(species: 'horse', height: 255, weight: 400, four_legged: true)
+
+    visit "/animals"
+    click_on "edit :"
+
+    expect(current_path).to eq("/animals/#{animal.id}/edit")
+  end
+
 end
