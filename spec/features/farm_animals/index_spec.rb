@@ -38,17 +38,17 @@ RSpec.describe 'FarmAnimals' do
     expect(current_path).to eq("/farms")
   end
 
-  xit 'will sort the farm animals in alphabetical order via a link' do
+  it 'will sort the farm animals in alphabetical order via a link' do
     @farm = Farm.create!(name: 'Knotsbury', acres_of_land: 200, has_barn: true)
-    animal = @farm.animals.create!(species: 'horse', height: 255, weight: 400, four_legged: true)
-    animal_2 = @farm.animals.create!(species: 'chicken', height: 5, weight: 10, four_legged: false)
-    animal_3 = @farm.animals.create!(species: 'alpaca', height: 45, weight: 100, four_legged: true)
+    @animal = @farm.animals.create!(species: 'horse', height: 255, weight: 400, four_legged: true)
+    @animal_2 = @farm.animals.create!(species: 'chicken', height: 5, weight: 10, four_legged: false)
+    @animal_3 = @farm.animals.create!(species: 'alpaca', height: 45, weight: 100, four_legged: true)
 
     visit "/farms/#{@farm.id}/animals"
     click_on "Sort animals alphabetically"
 
-    expect(animal_3).to appear_before(animal_2)
-    expect(animal_2).to appear_before(animal_1)
+    expect(@animal_3.species).to appear_before(@animal_2.species)
+    expect(@animal_2.species).to appear_before(@animal.species)
   end
 
   it 'has a link to direct to edit animal details' do
@@ -59,6 +59,20 @@ RSpec.describe 'FarmAnimals' do
     click_on "edit #{animal.species}"
 
     expect(current_path).to eq("/farms/#{@farm.id}/animals/#{animal.id}/edit")
+  end
+
+  it 'has a link to sort out values of animals determined by user' do
+    @farm = Farm.create!(name: 'Knotsbury', acres_of_land: 200, has_barn: true)
+    animal = @farm.animals.create!(species: 'horse', height: 255, weight: 400, four_legged: true)
+    animal_2 = @farm.animals.create!(species: 'pig', height: 35, weight: 90, four_legged: true)
+
+    visit "/farms/#{@farm.id}/animals"
+
+    fill_in(with: 200)
+    click_button("Submit")
+
+    expect(current_path).to eq("/farms/#{@farm.id}/animals")
+    expect(page).to have_content(animal.species)
   end
 
 end
