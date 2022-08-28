@@ -12,6 +12,7 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
+https://app.dbdesigner.net/designer/schema/549687
 
 * Database initialization
 
