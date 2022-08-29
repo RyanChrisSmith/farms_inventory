@@ -9,9 +9,9 @@ class FarmAnimalsController < ApplicationController
   end
 
   def search_weight
+    @animals = []
     @farm = Farm.find(params[:farm_id])
-    @animals = @farm.animals.find{|animal| animal.weight > (params[:search].to_i)}
-      redirect_to "/farms/#{@farm.id}/animals"
+    @animals << @farm.animals.where{|animal| animal.weight > (params[:search].to_i)}
   end
 
 end
