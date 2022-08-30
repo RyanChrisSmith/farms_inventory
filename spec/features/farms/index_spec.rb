@@ -12,12 +12,13 @@ RSpec.describe Farm, type: :feature do
         expect(page).to have_content(@farm.name)
       end
 
-      xit 'will show the farms by creation time, with most recent showing first' do
+      it 'will show the farms by creation time, with most recent showing first' do
         @farm = Farm.create!(name: 'Knotsbury Farm', acres_of_land: 350, has_barn: true)
         @farm_2 = Farm.create!(name: 'Ryans Farm', acres_of_land: 340, has_barn: true)
         @farm_3 = Farm.create!(name: 'Crazy Farm', acres_of_land: 134, has_barn: false)
 
         visit '/farms'
+
 
         expect(@farm_3.name).to appear_before(@farm_2.name)
         expect(@farm_3.name).to appear_before(@farm.name)
