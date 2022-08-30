@@ -1,5 +1,6 @@
 <%= link_to "All animals", "/animals"%><br>
 <%= link_to "All farms", "/farms"%>
+
 <h1>All Animals</h1>
 <% @animals.each do |animal| %>
   <h3><%= link_to "edit :", "/animals/#{animal.id}/edit" %>
@@ -7,6 +8,8 @@
   <p>Height: <%= animal.height%></p>
   <p>Weight: <%= animal.weight%></p>
   <p>Four Legs?: <%= animal.four_legged%></p>
+  <p>Created: <%= animal.created_at%></p>
+  <p>Last Updated: <%= animal.updated_at%></p>
   <p><%= button_to "Delete #{animal.species}", "/animals/#{animal.id}", method: :delete %></p>
 <% end %>
 

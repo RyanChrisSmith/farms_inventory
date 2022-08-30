@@ -7,4 +7,6 @@
   <p>Height: <%= @animal.height %> in</p>
   <p>Weight: <%= @animal.weight %> lbs</p>
   <p>Is four legged: <%= @animal.four_legged %></p>
+  <p>Created: <%= @animal.created_at%></p>
+  <p>Last Updated: <%= @animal.updated_at%></p>
   <p><%= button_to "Delete #{@animal.species}", "/animals/#{@animal.id}", method: :delete %></p>

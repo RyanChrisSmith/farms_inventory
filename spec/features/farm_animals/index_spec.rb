@@ -8,6 +8,7 @@ RSpec.describe 'FarmAnimals' do
       animal_2 = farm.animals.create!(species: 'chicken', height: 5, weight: 10, four_legged: false)
 
       visit "/farms/#{farm.id}/animals"
+
       expect(page).to have_content(farm.name)
       expect(page).to have_content(animal.species)
       expect(page).to have_content("Height: #{animal.height} inches")
